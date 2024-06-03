@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change_color</title>
+
+    <style>
+        div{
+            background-color: black;
+            width: 100px;
+            height: 100px;
+        }
+        .maxwidth{
+            width: 100%;
+            transition: 2s;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="box1"></div>
+    <br>
+    <button onclick="change()">CHANGE</button>
+    
+
+    <script>
+        var ch = document.getElementById("box1")
+        function change()
+        {
+            // ch.setAttribute("class","maxwidth")
+            // to change its color
+            ch.style.backgroundColor="red"
+        }
+    </script>
+
+</body>
+</html>

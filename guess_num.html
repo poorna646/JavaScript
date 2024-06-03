@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number_game</title>
+</head>
+<body>
+    <h1>GUESS THE NUMBER</h1>
+    <input id="num"/>
+    <br><br>
+    <button onclick="generate_ans()">CLICK</button>
+    <p id="res">You are right/wrong</p>
+    <p id="sc">Your score : 10</p>
+    
+
+    <script>
+        var score = 10
+        var a = Math.floor(Math.random()*10)+1
+        var b = document.getElementById("num")
+        var c =Number(b.value)
+        var r = document.getElementById("res")
+        var s = document.getElementById("sc")
+        function generate_ans(){
+            
+            if(a==c)
+            {
+                // console.log("right")
+                res.textContent = "right"
+                sc.textContent = "score: "+score
+                alert("YOU WON")
+            }
+            else{
+                // console.log("wrong")
+                if(score<=0)
+                {
+                    alert("You lost the match")
+                }
+                else{
+                    score=score-1
+                    sc.textContent = "score: "+score
+                    res.textContent = "wrong"
+                }
+                
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

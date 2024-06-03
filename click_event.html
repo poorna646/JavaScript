@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click_event</title>
+</head>
+<body>
+    <p id="one">hello</p>
+    <button onclick="change()">change</button>
+    <script>
+        var p = document.getElementById("one")
+        
+        function change()
+        {
+            p.textContent="bye"
+        }
+    </script>
+    
+</body>
+</html> -->
+
+add two numbers and print the result when the button is clicked
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click_event</title>
+</head>
+<body>
+    <input id="num1"><br><br>
+    <input id="num2"><br><br>
+    <button onclick="handleclick()">click</button><br><br>
+    <p id="tot">RESULT</p>
+
+    <script>
+        function handleclick()
+        {
+            var box1=document.getElementById("num1")
+            var box2=document.getElementById("num2")
+            // console.log(box1.value)
+            // console.log(box2.value)
+            var a = Number(box1.value)
+            var b = Number(box2.value)
+            // console.log(a+b)
+            // to store in result
+            var total = a+b 
+            tot.textContent=total
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>play with button</title>
+</head>
+<body>
+    <h1 id="text">hello</h1>
+    <button onclick="change(event)">poorna</button>
+    <button onclick="change(event)">pradh</button>
+    <button onclick="change(event)">shitha</button>
+
+    <script>
+        var d = document.getElementById("text") 
+        function change(event)
+        {   //prints the events that occur during this process, if we watch in this event field we will have target attribute when it is touched it selects the button
+            // concole.log(event)
+            // console.log(event.target)//displays button tag
+
+            d.textContent=event.target.textContent //this line is given to select the content in button
+        }
+    </script>
+</body>
+</html>
