@@ -1,0 +1,83 @@
+DAY PLANNER
+
+import { useState } from "react";
+
+function ParentComp() {
+    const [tasks, setTasks] = useState([]);
+    const [taskContent, setTaskContent] = useState("");
+    const [taskDate, setTaskDate] = useState("");
+    const [taskTime, setTaskTime] = useState("");
+    const [notification, setNotification] = useState("");
+
+    function handleAddTask() {
+        if (taskContent !== "" && taskDate !== "" && taskTime !== "") {
+            setTasks([...tasks, { content: taskContent, date: taskDate, time: taskTime }]);
+            setTaskContent("");
+            setTaskDate("");
+            setTaskTime("");
+            setNotification("You will be notified");
+            setTimeout(() => setNotification(""), 3000);
+        }
+    }
+
+    function handleDeleteTask(idx) {
+        let updatedTasks = tasks.filter((_, index) => index !== idx);
+        setTasks(updatedTasks);
+    }
+
+    function handleEditTask(idx) {
+        let updatedContent = prompt("New content:", tasks[idx].content);
+        let updatedDate = prompt("New date (YYYY-MM-DD):", tasks[idx].date);
+        let updatedTime = prompt("New time (HH:MM):", tasks[idx].time);
+        if (updatedContent.trim() !== "" && updatedDate.trim() !== "" && updatedTime.trim() !== "") {
+            let updatedTasks = [...tasks];
+            updatedTasks[idx] = { content: updatedContent, date: updatedDate, time: updatedTime };
+            setTasks(updatedTasks);
+        }
+    }
+
+    return (
+        <>
+        <p style={{textAlign:'center'}}>Day Planner</p>
+            <label>Task:</label>
+            <input
+                type="text"
+                value={taskContent}
+                onChange={(e) => setTaskContent(e.target.value)}
+                placeholder="Task content"
+            />
+            <br />
+            <label>Date:</label>
+            <input
+                type="date"
+                value={taskDate}
+                onChange={(e) => setTaskDate(e.target.value)}
+            />
+            <br />
+            <label>Time:</label>
+            <input
+                type="time"
+                value={taskTime}
+                onChange={(e) => setTaskTime(e.target.value)}
+            />
+            <br />
+            <button onClick={handleAddTask}>Add</button>
+            {notification && <div>{notification}</div>}
+            <div>
+                {tasks
+                    .sort((a, b) => new Date(`${a.date}T${a.time}`) - new Date(`${b.date}T${b.time}`))
+                    .map((task, index) => (
+                        <div key={index}>
+                            <p>
+                                <strong>{task.date} {task.time}:</strong> {task.content}
+                            </p>
+                            <button onClick={() => handleDeleteTask(index)}>Delete</button>
+                            <button onClick={() => handleEditTask(index)}>Edit</button>
+                        </div>
+                    ))}
+            </div>
+        </>
+    );
+}
+
+export default ParentComp;
