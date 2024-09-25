@@ -1,0 +1,19 @@
+<p id="tex">Test me!</p>
+    <script>
+        document.getElementById('tex').onmouseout=function(){mouseout()};
+        function mouseout(){
+            document.getElementById('tex').innerHTML='i changed';
+        }
+    </script>
+
+    <!-- --------------------------------------------------------------------------- -->
+
+    <p id="tex">Hi this is mouseEvent!</p>
+    <script>
+        document.getElementById('tex').onmouseover=function() 
+            {mouseOver()};
+        function mouseOver()
+        {
+            document.getElementById('tex').style.color='red';
+        }
+    </script>
