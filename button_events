@@ -1,0 +1,32 @@
+<form >
+    <input type="radio" id="ans1" name="fruit1">apple
+    <input type="radio" id="ans2" name="fruit1">orange
+    <input type="radio" id="ans3" name="fruit1">mango
+    <br>
+    <button id="sub" onclick="clicked(event)">submit</button>
+    <button id="cl" onclick="cleared(event)">clear</button>
+    <p id="display"></p>
+    </form>
+
+    <script>
+        function clicked(event)
+        {
+            event.preventDefault();
+            
+            if(document.getElementById('ans1').checked == true)
+            document.getElementById('display').innerHTML = 'good';
+            else
+            document.getElementById('display').innerHTML = 'bad';
+
+        }
+
+
+        function cleared(event)
+        {
+            event.preventDefault();
+            document.getElementById('ans1').checked = false;
+            document.getElementById('ans2').checked = false;
+            document.getElementById('ans3').checked = false;
+            document.getElementById('display').innerHTML=" ";
+        }
+    </script>
