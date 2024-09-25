@@ -1,0 +1,13 @@
+ <p id="tex"></p>
+    <script>
+        var text="";
+        if(navigator.cookieEnabled===true)
+    {
+        text='cookies are enabled';
+    }
+    else
+    {
+        text='cookies are not enabled';
+    }
+    document.getElementById('tex').innerHTML=text
+    </script>
